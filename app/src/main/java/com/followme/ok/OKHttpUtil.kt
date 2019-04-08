@@ -97,7 +97,7 @@ class OKHttpUtil(inputStream: InputStream) {
         val trustManagerFactory = TrustManagerFactory.getInstance(
                 TrustManagerFactory.getDefaultAlgorithm())
         trustManagerFactory.init(keyStore)
-        val trustManagers = trustManagerFactory.getTrustManagers()
+        val trustManagers = trustManagerFactory.trustManagers
         if (trustManagers.size != 1 || trustManagers[0] !is X509TrustManager) {
             throw IllegalStateException("Unexpected default trust managers:" + Arrays.toString(trustManagers))
         }
